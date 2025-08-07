@@ -1,0 +1,63 @@
+/* src/styles.css */
+
+.packages {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+  }
+  
+  .package-card {
+    width: 250px;
+    height: 250px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .package-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .package-card h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .package-card p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .package-card .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .package-card button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+  
+  .package-card button:hover {
+    background-color: #0b5ed7;
+  }
+  

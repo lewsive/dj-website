@@ -1,4 +1,6 @@
 import React from 'react';
+import PurchaseOptions from './components/PurchaseOptions';
+import './styles.css';
 
 const Home = () => {
   return (
@@ -17,6 +19,11 @@ const Home = () => {
           <li>🎵 Consultations to match your vibe</li>
         </ul>
       </section>
+
+      <section className="home">
+      <h1>Book Your DJ Experience</h1>
+      <PurchaseOptions />
+    </section>
 
       <section style={styles.section}>
         <h2>Ready to Book?</h2>
