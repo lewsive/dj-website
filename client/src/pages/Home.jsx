@@ -1,56 +1,49 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+import PurchaseOptions from '../components/PurchaseOptions';
+import Bio from '../components/Bio';
+import '../styles.css';
 
-const HomePage = () => {
+const Home = () => {
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1>Book Your DJ Consultation</h1>
-        <p>Professional DJ services for events, parties, and more.</p>
-      </header>
+    <div className="home-container">
+      <Helmet>
+        <title>Cosmic Syndicate | DJ Noah Coe - Clubs, Weddings, Private Events</title>
+        <meta
+          name="description"
+          content="Book DJ Noah Coe for unforgettable club nights, weddings, and private parties. Professional DJ services with customizable packages."
+        />
+        <meta
+          name="keywords"
+          content="DJ Noah Coe, Cosmic Syndicate, Wedding DJ, Club DJ, Orlando DJ, Private Events DJ, Book a DJ"
+        />
+        <meta name="author" content="Noah Coe" />
+        <meta property="og:title" content="Cosmic Syndicate | DJ Noah Coe" />
+        <meta
+          property="og:description"
+          content="Premium DJ services for clubs, weddings, and private events."
+        />
+        <meta property="og:image" content="/me-djing.PNG" />
+        <meta property="og:url" content="https://cossyn.io" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
 
-      <section style={styles.section}>
-        <h2>What We Offer</h2>
-        <ul>
-          <li>🎧 Custom music for your event</li>
-          <li>💡 Lighting and sound setup</li>
-          <li>📅 Flexible scheduling</li>
-          <li>🎵 Consultations to match your vibe</li>
-        </ul>
+      <section className="hero-section">
+        <img
+          src="me-djing.PNG"
+          alt="DJ Noah Coe performing live"
+          className="hero-image"
+        />
+        <div className="hero-text">
+          <h1>Cosmic Syndicate</h1>
+          <p>Private Events | Clubs | Weddings</p>
+        </div>
       </section>
 
-      <section style={styles.section}>
-        <h2>Ready to Book?</h2>
-        <p>Click below to get started with your consultation.</p>
-        <button style={styles.button}>Book Now</button>
-      </section>
+      <Bio />
+      <PurchaseOptions />
     </div>
   );
 };
 
-const styles = {
-  container: {
-    padding: '2rem',
-    fontFamily: 'Arial, sans-serif',
-    lineHeight: 1.6,
-  },
-  header: {
-    backgroundColor: '#111',
-    color: '#fff',
-    padding: '2rem',
-    textAlign: 'center',
-  },
-  section: {
-    marginTop: '2rem',
-  },
-  button: {
-    padding: '0.75rem 1.5rem',
-    backgroundColor: '#111',
-    color: '#fff',
-    border: 'none',
-    cursor: 'pointer',
-    fontSize: '1rem',
-    borderRadius: '5px',
-  },
-};
-
-export default HomePage;
+export default Home;

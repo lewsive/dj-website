@@ -1,6 +1,56 @@
-/* src/styles.css */
+/* Dark Mode Styles */
 
-.packages {
+/* Base background and text color */
+body {
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Home container */
+  .home-container {
+    padding: 1rem;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    flex: 1.5;
+  }
+  
+  .hero-text {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  
+  /* Package section */
+  .packages {
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -11,11 +61,11 @@
   .package-card {
     width: 250px;
     height: 250px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: #1e1e1e;
+    border: 1px solid #333;
     border-radius: 16px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,18 +82,19 @@
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    color: #f0f0f0;
   }
   
   .package-card p {
     margin: 0.5rem 0;
     font-size: 0.95rem;
-    color: #555;
+    color: #aaa;
   }
   
   .package-card .price {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #222;
+    color: #e0e0e0;
   }
   
   .package-card button {
@@ -60,4 +111,125 @@
   .package-card button:hover {
     background-color: #0b5ed7;
   }
+  /* Contact Form Container */
+.contact-form {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Input and Textarea Styles */
+  .contact-form input,
+  .contact-form textarea {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    resize: none;
+    width: 100%;
+  }
+  
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #888;
+  }
+  
+  /* Submit Button */
+  .contact-form button {
+    padding: 0.75rem;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0b5ed7;
+  }
+  /* Form Container */
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #121212;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  }
+  
+  /* Each Field Wrapper */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Input, Select, Textarea Styles */
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  /* Focus Style */
+  form input:focus,
+  form textarea:focus,
+  form select:focus {
+    border-color: #0d6efd;
+    outline: none;
+    background-color: #222;
+  }
+
+  form button {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  form button:hover {
+    background: linear-gradient(135deg, #6610f2, #0d6efd);
+    transform: scale(1.02);
+  }
+  
+  form button:active {
+    transform: scale(0.98);
+  }
+  
+  .booking-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .booking-container h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff; /* optional, depending on your theme */
+    text-align: left; /* or center if you prefer */
+  }
+  
   

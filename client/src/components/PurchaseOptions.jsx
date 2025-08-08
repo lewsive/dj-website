@@ -1,6 +1,7 @@
 // src/components/PurchaseOptions.jsx
 import React from 'react';
-import '../styles.css'; // optional, for styling
+import { Link } from 'react-router-dom';
+import '../styles.css';
 
 const PurchaseOptions = () => {
   const packages = [
@@ -28,7 +29,9 @@ const PurchaseOptions = () => {
           <h2>{pkg.title}</h2>
           <p>{pkg.description}</p>
           <p className="price">{pkg.price}</p>
-          <button>Book Now</button>
+          <Link to={`/booking?type=${encodeURIComponent(pkg.title)}`}>
+            <button>Book Now</button>
+          </Link>
         </div>
       ))}
     </div>

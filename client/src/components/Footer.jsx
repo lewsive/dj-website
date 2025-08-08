@@ -1,9 +1,10 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer style={styles.footer}>
-    <p>&copy; {new Date().getFullYear()} Your DJ Name. All rights reserved.</p>
+    <footer style={{ textAlign: 'center', padding: '1rem', color: '#888' }}>
+    © 2024–{new Date().getFullYear()} Cosmic Syndicate
   </footer>
+  
 );
 
 const styles = {
