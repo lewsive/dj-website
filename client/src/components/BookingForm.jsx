@@ -12,6 +12,7 @@ const BookingForm = () => {
     user_email: '',
     message: '',
   });
+  const [extras, setExtras] = useState([]);
   const [status, setStatus] = useState('');
 
   useEffect(() => {
@@ -25,6 +26,14 @@ const BookingForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const toggleExtra = (optionName) => {
+    if (extras.includes(optionName)) {
+      setExtras(extras.filter(e => e !== optionName));
+    } else {
+      setExtras([...extras, optionName]);
+    }
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus('Sending...');
@@ -32,6 +41,7 @@ const BookingForm = () => {
     const templateParams = {
       ...formData,
       event_type: eventType || 'General Event',
+      extras: extras.length ? extras.join(', ') : 'None selected',
       to_email: 'dj@cossyn.com',
     };
 
@@ -39,6 +49,7 @@ const BookingForm = () => {
       .then(() => {
         setStatus('✅ Booking request sent!');
         setFormData({ user_name: '', user_email: '', message: '' });
+        setExtras([]);
       })
       .catch(err => {
         console.error('Failed to send:', err);
@@ -46,14 +57,23 @@ const BookingForm = () => {
       });
   };
 
+  const extraOptions = [
+    { name: 'Lighting Package (includes smoke machine)', price: 100 },
+    { name: '360° Photo Booth', price: 250 },
+    { name: 'Smoke Machine', price: 50 },
+    { name: 'Subwoofer', price: 80 }
+  ];
+
   return (
-    <div className="form-container" style={{ maxWidth: '500px', margin: '0 auto', padding: '20px' }}>
-      <h2 className="form-title" style={{ textAlign: 'center', marginBottom: '30px' }}>
+    <div className="form-container" style={{ maxWidth: 500, margin: '0 auto', padding: 20 }}>
+      <h2 style={{ textAlign: 'center', marginBottom: 30 }}>
         Book {eventType || 'an Event'}
       </h2>
-      <form onSubmit={sendEmail} className="form">
-        <div className="form-group" style={{ marginBottom: '20px' }}>
-          <label htmlFor="user_name" style={{ display: 'block', marginBottom: '5px' }}>Name</label>
+
+      <form onSubmit={sendEmail}>
+        {/* Name */}
+        <div className="form-group" style={{ marginBottom: 20 }}>
+          <label htmlFor="user_name">Name</label>
           <input
             type="text"
             id="user_name"
@@ -62,17 +82,12 @@ const BookingForm = () => {
             onChange={handleChange}
             required
             placeholder="Your Name"
-            style={{
-              width: '100%',
-              padding: '10px',
-              border: '1px solid #ccc',
-              borderRadius: '6px'
-            }}
           />
         </div>
 
-        <div className="form-group" style={{ marginBottom: '20px' }}>
-          <label htmlFor="user_email" style={{ display: 'block', marginBottom: '5px' }}>Email</label>
+        {/* Email */}
+        <div className="form-group" style={{ marginBottom: 20 }}>
+          <label htmlFor="user_email">Email</label>
           <input
             type="email"
             id="user_email"
@@ -81,17 +96,12 @@ const BookingForm = () => {
             onChange={handleChange}
             required
             placeholder="Your Email"
-            style={{
-              width: '100%',
-              padding: '10px',
-              border: '1px solid #ccc',
-              borderRadius: '6px'
-            }}
           />
         </div>
 
-        <div className="form-group" style={{ marginBottom: '20px' }}>
-          <label htmlFor="message" style={{ display: 'block', marginBottom: '5px' }}>Event Details</label>
+        {/* Message */}
+        <div className="form-group" style={{ marginBottom: 20 }}>
+          <label htmlFor="message">Event Details</label>
           <textarea
             id="message"
             name="message"
@@ -99,38 +109,75 @@ const BookingForm = () => {
             onChange={handleChange}
             required
             placeholder="Tell me more about your event"
-            rows="5"
-            style={{
-              width: '100%',
-              padding: '10px',
-              border: '1px solid #ccc',
-              borderRadius: '6px'
-            }}
+            rows={5}
           />
         </div>
 
+        {/* Extras */}
+        <div className="form-group" style={{ marginBottom: 20 }}>
+          <label style={{ fontWeight: 'bold', marginBottom: 8, display: 'block', color: '#000' }}>Extras</label>
+
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          {extraOptions.map(option => {
+  const selected = extras.includes(option.name);
+  return (
+    <button
+      type="button"
+      key={option.name}
+      onClick={() => toggleExtra(option.name)}
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '8px 14px',
+        borderRadius: 6,
+        border: selected ? '2px solid #16a34a' : '2px solid #ccc',
+        backgroundColor: selected ? '#16a34a' : '#f0f0f0',
+        color: '#fff',  // always white text
+        cursor: 'pointer',
+        userSelect: 'none',
+        fontWeight: '500',
+        minWidth: '180px',
+        transition: 'background-color 0.2s, border-color 0.2s',
+      }}
+    >
+      <span>{option.name}</span>
+      <span>${option.price}</span>
+    </button>
+  );
+})}
+
+
+
+          </div>
+        </div>
+
+        {/* Submit */}
         <button
           type="submit"
-          className="form-button"
           style={{
             width: '100%',
-            padding: '12px',
-            backgroundColor: '#3B82F6',
+            maxWidth: 320,
+            margin: '0 auto',
+            padding: 14,
+            background: '#3b82f6',
             color: '#fff',
+            fontWeight: 'bold',
             border: 'none',
-            borderRadius: '8px',
-            fontSize: '16px',
+            borderRadius: 8,
+            fontSize: 16,
             cursor: 'pointer',
-            transition: 'background-color 0.3s ease'
+            display: 'block',
+            userSelect: 'none',
           }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#2563EB'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#3B82F6'}
+          onMouseOver={e => e.currentTarget.style.background = '#2563eb'}
+          onMouseOut={e => e.currentTarget.style.background = '#3b82f6'}
         >
           Submit Booking Request
         </button>
 
         {status && (
-          <p className="status-msg" style={{ marginTop: '15px', textAlign: 'center' }}>
+          <p style={{ marginTop: 15, textAlign: 'center' }}>
             {status}
           </p>
         )}

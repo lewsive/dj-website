@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/booking" element={<BookingForm />} /> {/* updated path & component */}
+          <Route path="/book" element={<BookingForm />} /> {/* updated path */}
           <Route path="/bio" element={<Bio />} /> {/* optional bio page */}
         </Routes>
       </main>

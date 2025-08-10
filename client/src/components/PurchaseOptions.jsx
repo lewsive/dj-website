@@ -8,12 +8,12 @@ const PurchaseOptions = () => {
     {
       title: 'Private Events',
       description: 'Perfect for birthdays, house parties, and corporate functions.',
-      price: '$300+',
+      price: '$150+',
     },
     {
       title: 'Clubs',
       description: 'Live DJ sets with full sound and lighting. Tailored for nightlife venues.',
-      price: '$500+',
+      price: '$200+',
     },
     {
       title: 'Weddings',
@@ -29,7 +29,7 @@ const PurchaseOptions = () => {
           <h2>{pkg.title}</h2>
           <p>{pkg.description}</p>
           <p className="price">{pkg.price}</p>
-          <Link to={`/booking?type=${encodeURIComponent(pkg.title)}`}>
+          <Link to={`/book?type=${encodeURIComponent(pkg.title)}`}>
             <button>Book Now</button>
           </Link>
         </div>
