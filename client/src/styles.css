@@ -231,6 +231,24 @@ form {
     color: #fff; /* optional, depending on your theme */
     text-align: left; /* or center if you prefer */
   }
+  .terminal-title {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .terminal-title::after {
+    content: "_"; /* block cursor look */
+    display: inline-block;
+    margin-left: 6px;
+    animation: blink 1s step-start infinite;
+    text-shadow: 0 0 8px rgba(0,255,204,0.6);
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
   
   
   

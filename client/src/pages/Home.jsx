@@ -6,7 +6,17 @@ import '../styles.css';
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div 
+      className="home-container"
+      style={{
+        backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/space.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        color: "white"
+      }}
+    >
       <Helmet>
         <title>Cosmic Syndicate | DJ Noah Coe - Clubs, Weddings, Private Events</title>
         <meta
@@ -29,14 +39,22 @@ const Home = () => {
       </Helmet>
 
       <section className="hero-section">
-        <img
+        <img 
           src="me-djing.PNG"
           alt="DJ Noah Coe performing live"
           className="hero-image"
+          style={{ marginLeft: "75px" }} 
         />
+        
+
         <div className="hero-text">
-          <h1>Cosmic Syndicate</h1>
-          <p>Private Events | Clubs | Weddings</p>
+        <h1 style={styles.heading} className="terminal-title">
+  Cosmic Syndicate
+</h1>
+<p style={styles.subText}>Private Events | Clubs | Weddings</p>
+<p style={styles.tagline}>A Stellar Performance You Won't Forget</p>
+
+
         </div>
       </section>
 
@@ -45,5 +63,36 @@ const Home = () => {
     </div>
   );
 };
+const styles = {
+  heading: {
+    fontSize: '5rem',
+    fontWeight: 'bold',
+    fontFamily: 'Courier New, monospace',
+    textTransform: 'uppercase',
+    letterSpacing: '3px',
+    marginBottom: '.3rem',
+    textShadow: '0 0 8px rgba(0,255,204,0.4)',
+  },
+  subText: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    fontFamily: 'Courier New, monospace',
+    marginBottom: '0.3rem',
+    letterSpacing: '2px',
+  },
+  tagline: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    fontFamily: 'Courier New, monospace',
+    fontStyle: 'italic',
+    letterSpacing: '1px',
+    opacity: 1,
+
+    
+  },
+  
+};
+
+
 
 export default Home;
