@@ -6,8 +6,7 @@ const Bio = () => {
     <section style={styles.container}>
       <h2 style={styles.heading}>About Us</h2>
       <p style={styles.text}>
-        Hi! I'm a professional DJ specializing in private events, clubs, and weddings. I create
-        unforgettable music experiences tailored to your vibe.
+      Here at Cosmic Syndicate, we believe quality entertainment should be both accessible and affordable. Music is at the heart of every memorable event, and it has the power to make or break the atmosphere. That’s why we take care of every musical detail, so you don’t have to worry. Our mission is to deliver an unforgettable experience at an unbeatable price, turning your event into the talk of the town.
       </p>
     </section>
   );

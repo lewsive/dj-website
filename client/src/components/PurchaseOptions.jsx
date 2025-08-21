@@ -18,7 +18,7 @@ const PurchaseOptions = () => {
     {
       title: 'Weddings',
       description: 'Full-day wedding coverage with ceremony + reception music.',
-      price: '$800+',
+      price: '$500+',
     },
   ];
 

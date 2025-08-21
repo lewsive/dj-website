@@ -58,10 +58,10 @@ const BookingForm = () => {
   };
 
   const extraOptions = [
-    { name: 'Lighting Package (includes smoke machine)', price: 100 },
-    { name: '360° Photo Booth', price: 250 },
-    { name: 'Smoke Machine', price: 50 },
-    { name: 'Subwoofer', price: 80 }
+    { name: 'Lighting Package (includes smoke machine)', price: 500 },
+    { name: '360° Photo Booth', price: 200 },
+    { name: 'Smoke Machine', price: 200 },
+    { name: 'Subwoofer', price: 500 }
   ];
 
   return (
